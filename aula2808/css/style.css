@@ -1,0 +1,86 @@
+/*reset CSS*/
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+
+body{
+    background-image: url(../img/dinossario.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+    background-color: #000000;
+    text-align: center;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding:20px;
+    background-color: #ebe7e7;
+    text-align: justify; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0,0,0,0.1);
+}
+
+header img{
+    max-width: 200px;
+}
+
+p{
+    font-family: arial;
+    font-size: 16px;
+}
+
+h1{
+   font-family: arial;
+    font-size: 30px; 
+}
+
+h2{
+    font-family: arial;
+    font-size: 20px;
+}
+
+h3{font-family: arial;
+    font-size: 18px;
+}
+
+h1, h2, h3{
+    color: #0056b3;
+}
+
+footer{
+    background-color: black;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+
+figure{
+    text-align: center;
+}
+
+.imagem-conteudo{
+    border-radius: 20px;
+    display:block;
+    margin: 20px auto;
+    max-width: 60%;
+    height: auto;
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animação suave*/
+}
+
+.imagem-conteudo:hover{
+    transform: scale(1.05);  /* aumenta em 5% a imagem*/
+    box-shadow: 0 8px 16px rgb(0,0,0,0.3); /*Sombra mais intensa */
+    opacity: 0.9; /*90% visivel e 10% transparente */
+}
+
+#imagem-topo{
+    text-align: left;
+}
