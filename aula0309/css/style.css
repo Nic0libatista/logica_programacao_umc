@@ -1,0 +1,164 @@
+/*reset CSS*/
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+
+body{
+    background-image: url(../img/dinossario.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+    background-color: #000000;
+    text-align: center;
+}
+
+/*menu>*/
+
+nav {
+    background-color: #0c3313; /*cor de fundo*/
+    padding: 10px 0; /*espaço interno: 10px em cima e embaixo, 0 nas laterais*/
+
+}
+
+.menu {
+    list-style:none; /* Remove os marcadores (bolinhas) da lista */
+    display: flex; /* Alinha os itens em linha (horizontalmente) */
+    justify-content: center; /* Centraliza os itens no meio da tela */
+    gap: 20px; /* Espaço de 20px entre os itens */
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgb(253, 255, 255);
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.menu a:hover{
+    background-color: #000000;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding:20px;
+    background-color: #ebe7e7;
+    text-align: justify; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0,0,0,0.1);
+}
+
+header img{
+    max-width: 200px;
+}
+
+p{
+    font-family: arial;
+    font-size: 16px;
+}
+
+h1{
+   font-family: arial;
+    font-size: 30px; 
+}
+
+h2{
+    font-family: arial;
+    font-size: 20px;
+}
+
+h3{font-family: arial;
+    font-size: 18px;
+}
+
+h1, h2, h3{
+    color: #0056b3;
+}
+
+footer{
+    background-color: black;
+    color: #ffffff;
+    font-family: Arial;
+    text-align: center;
+}
+
+
+figure{
+    text-align: center;
+}
+
+.imagem-conteudo{
+    border-radius: 20px;
+    display:block;
+    margin: 20px auto;
+    max-width: 60%;
+    height: auto;
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animação suave*/
+}
+
+.imagem-conteudo:hover{
+    transform: scale(1.05);  /* aumenta em 5% a imagem*/
+    box-shadow: 0 8px 16px rgb(0,0,0,0.3); /*Sombra mais intensa */
+    opacity: 0.9; /*90% visivel e 10% transparente */
+}
+
+#imagem-topo{
+    text-align: left;
+}
+
+/*Responsividade
+
+/* Estilos para telas aé 900px (tablets e celulares grandes) */
+@media (max-widht:900px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    header img{
+        max-width: 150px;
+    }
+
+    .imagem-conteudo {
+        max-width: 80%;
+    }
+}
+/*Estilos para telas até 600px (celulares pequenos)*/
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .imagem-conteudo {
+        max-width: 100%;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        gap: 10px
+    }
+
+    nav {
+       padding: 5px 0;
+    }
+}
