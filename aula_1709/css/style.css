@@ -33,6 +33,38 @@ h1{
     color: rgb(94, 6, 0);
 }
 
+h5{
+    font-size: 1.5rem;
+    color: rgb(94, 6, 0);
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+}
+
+figcaption{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(94, 6, 0);
+}
+
+.conteudo{
+    align-items: center;
+    text-align: justify;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 1rem;
+    
+}
+
+figure{
+    align-items: center;
+}
+
+.imagem-conteudo{
+    width: 90%;
+    height: 30%;
+}
+
+
 #grid-conteudo{
     background-color: #ffffff;
 }
@@ -55,6 +87,7 @@ h1{
     border-radius: 20px;
     width: 90%;
     height: 30%;
+    align-items: center;
 }
 
 .imagem-site:hover{
