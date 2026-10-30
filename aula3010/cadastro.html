@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="resultado.html"> rsu</a>
+    
+     <h1>Formulário de Cadastro</h1>
+
+    <form>
+
+        <label>Digite seu nome:</label>
+        <input type="text" id="nome">
+
+        <br><br>
+
+        <label>Digite sua idade</label>
+        <input type="number" id="idade">
+
+        <br><br>
+
+        <label>Digite seu e-mail</label>
+        <input type="text" id="email">
+
+        <br><br>
+
+        <label>Digite sua cidade:</label>
+        <input type="text" id="cidade">
+        
+        <br><br>
+
+        <button type="button" onclick="mostrarDados()">
+            Enviar
+        </button>
+
+
+        <h1>Dados do cadastro </h1>
+
+        <p id="nome"></p>
+        <p id="idade"></p>
+        <p id="email"></p> 
+        <p id="cidade"></p>
+<script>
+    function mostrarDados() {
+        let nome = document.getElementById("nome").value;
+        let idade = document.getElementById("idade").value;
+        let email = document.getElementById("email").value;
+        let cidade = document.getElementById("cidade").value;
+    
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("idade", idade);
+        localStorage.setItem("email", email);
+        localStorage.setItem("cidade", cidade);
+       
+        window.location.href = "resultado.html";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="cadastro.html"></a>
+
+    
+        <h1>Dados do cadastro </h1>
+
+        <p id="nome"></p>
+        <p id="idade"></p>
+        <p id="email"></p> 
+        <p id="cidade"></p>
+
+<script>
+
+        let nome = localStorage.getItem("nome");
+        let idade = localStorage.getItem("idade");
+        let email = localStorage.getItem("email");
+        let cidade = localStorage.getItem("cidade");
+    
+        document.getElementById("nome").textContent =
+            "nome: " + nome;
+        
+        document.getElementById("idade").textContent =
+            "Idade: " + idade + " anos";
+
+        document.getElementById("email").textContent = 
+            "E-mail: " + email;
+            
+        document.getElementById("cidade").textContent = 
+            "Cidade: " + cidade;
+
+</script>
+</body>
+</html>
