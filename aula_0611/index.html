@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja Virtual</title>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Loja Virtual</h1>
+        <p>Escolha seus produtos e faça suas compras!</p>
+    </header>
+
+    <!--- PRODUTOS -->
+
+    <h2>Nossos Produtos</h2>
+    <div class="produtos" id="produtos"></div>
+
+<!--CARRINHO-->
+
+    <div class="carrinho>">
+        <h2>Meu Carrinho</h2>
+
+        <div id="listaCarrinho"></div>
+
+        <div class="resumo">
+
+            <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+            <p class="desconto">
+                Desconto: <span id="desconto">R$ 0,00</span>
+            </p>
+
+           <p class="total">
+            Total: <span id="total">R$ 0,00</span>
+           </p> 
+
+            <button class="limpar" onclick="limparCarrinho()">
+                Limpar Carrinho
+            </button>
+
+            <button onclick="finalizarCompra()">
+                Finalizar Compra
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+
+        // CADASTRO DOS PRODUTOS
+
+        const produtos = [
+            {
+                id:1,
+                nome: "Camiseta",
+                preco: 49.90,
+                emoji: "👕"
+            },
+
+            {
+                id:2,
+                nome: "Calça Jeans",
+                preco: 99.90,
+                emoji: "👖"
+            },
+
+            {
+                id: 3,
+                nome: "Tênis",
+                preco: 159.99,
+                emoji: "👟"
+            },
+
+            {
+                id:4,
+                nome: "Mochila",
+                preco: 79.90,
+                emoji: "🎒"
+            }
+        ];
+
+        // RECUPAR DADOS DO LOCALSTORAGE
+
+        let carrinho = []
+
+        try {
+            carrinho = JSON.parse(
+                localStorage.getItem("carrinho")
+            ) || [];
+
+            if (!Array.isArray(carrinho)) {
+                carrinho = [];
+            }
+
+        }catch (erro) {
+
+            carrinho = [];
+        
+        }
+
+        //FORMATAR VALORES EM REAIS
+
+        function moeda(valor) {
+            return valor.toLocalleString("pt-BR", {
+
+                style: "currency",
+                currency: "BRL"
+            });
+        }
+
+        //MOSTRAR PRODUTOS NA TELA
+
+        function mostrarProdutos() {
+
+            let area = document.getElementById("produtos");
+            
+            area.innerHTML = "";
+
+            produtos.forEach(function(produto) {
+            
+                area.innerHTML += `
+
+                <div class="produto">
+                    <div class="emoji">${produto.emoji}</div>
+
+                    <h3>${produto.nome}</h3>
+
+                    <p class="preco">
+                        ${moeda(produto.preco)}
+                    </p>
+
+                    <button onclick="adicionar(${produto.id})">
+                        Adicionar ao carrinho
+                    </button>
+                
+                </div>
+                `;
+            });
+        };
+
+        ///ADICIONAR PRODUTOS AO CARRINHO
+        function adicionar(id) {
+            let produto = produtos.find(function(p) {
+                return p.id === id;
+            });
+        
+            let item = carrinho.und(function(p) {
+                return p.id === id;
+            });
+
+            if (item) {
+                item.quantidade++;
+
+            } else {
+
+                carrinho.push({
+
+                    id: produto.id,
+                    nome: produto.nome,
+                    preco: produto.preco,
+                    quantidade:1
+                });
+
+            };
+
+            salvarCarrinho();
+            mostrarCarrinho();
+        }
+
+        // SALVAR NO LOCALSTORAGE
+
+        function salvarCarrinho() {
+            localStorage.setItem(
+                "carrinho",
+                JSON.stringify(carrinho)
+            );
+        }
+
+
+        // MOSTRAR O CARRINHO
+
+        function mostrarCarrinho() {
+
+            let lista = document.getElementById("ListaCarrinho");
+
+            lista.innerHTML = "";
+            
+            let subtotalGeral = 0;
+
+            if (carrinho.length === 0) {
+                lista.innerHTML = `
+                <p class="mensagem">
+                    Seu carrinho está vazio!
+                </p>
+            `;
+            }
+
+            carrinho.forEach(function(item) {
+                
+                let subtotal = item.preco * item.quantidade;
+                subtotalGeral += subtotal;
+                lista.innerHTML += `
+
+                    <div class="item">
+                        
+                        <div>
+                        <strong>${item.nome}</strong>
+
+                        <p>
+                            ${moeda(item.preco)} cada
+                        </p>
+
+                        <p>
+                            Subtotal: ${moeda(subtotal)}
+                        </p>
+
+                    </div>
+
+                    <div class="quantidade">
+
+                        <button onclick="alterarQauntidade(${item.id}, -1)">
+                            -
+                        </button>
+
+                        <strong>${item.quantidade}</strong>
+
+                        <button onclick="alterarQuantidade(${item.id}, 1)">
+                            +
+                        </button>
+
+                    </div>
+
+
+                        <button class="remover"
+                            onclick="remover(${item.id})">
+
+                            Remover
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+        }
+    </script>
+</body>
+</html>
