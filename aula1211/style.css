@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f3f6;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: #173a5d;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin:0;
+}
+
+h2 {
+    color:#333;
+    text-align: center;
+}
+
+.produtos {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
+}
+
+.produto{
+    background-color: white;
+    width: 210px;
+    padding: 20px;
+    border-radius:10px;
+    text-align: center;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.produto .emoji {
+    font-size: 55px;
+}
+
+.produto h3{
+    color: #173a5d;
+}
+
+.preco {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #173a5d;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.carrinho {
+    background-color: white;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding:15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantidade button {
+    padding: 6px 12px;
+}
+
+.remover {
+    background-color: #dc3545;
+}
+
+.resumo {
+    text-align: right;
+    margin-top: 25px;
+    line-height: 2;
+}
+
+.total{
+    font-size: 24px;
+    font-weight: bold;
+    color: #173a5d;
+}
+
+.desconto{
+    color: green;
+    font-weight: bold;
+}
+
+.limpar {
+    background-color: #555;
+}
+
+.mensagem {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .produto {
+        width: 100%;
+    }
+}
